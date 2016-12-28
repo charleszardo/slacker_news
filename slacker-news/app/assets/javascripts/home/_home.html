@@ -15,8 +15,8 @@
       <a href="#!/posts/{{$index}}">Comments</a>
     </span>
   </span>
-  <span class="glyphicon glyphicon-thumbs-up" ng-click="vote(post, 1)"></span>
-  <span class="glyphicon glyphicon-thumbs-down" ng-click="vote(post, -1)"></span>
+  <span class="glyphicon glyphicon-thumbs-up" ng-click="vote(post, 1, 'post')"></span>
+  <span class="glyphicon glyphicon-thumbs-down" ng-click="vote(post, -1, 'post')"></span>
 </div>
 
 <form ng-submit="addPost()" style="margin-top:30px;">

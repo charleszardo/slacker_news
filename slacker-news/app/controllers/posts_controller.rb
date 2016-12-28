@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     post = Post.new(post_params)
     post.upvotes = 0
     post.save
-    
+
     respond_with post
   end
 
@@ -18,6 +18,13 @@ class PostsController < ApplicationController
   def upvote
     post = Post.find(params[:id])
     post.increment!(:upvotes)
+
+    respond_with post
+  end
+
+  def downvote
+    post = Post.find(params[:id])
+    post.decrement!(:upvotes)
 
     respond_with post
   end
