@@ -18,4 +18,4 @@ app.config([
       })
 
     $urlRouterProvider.otherwise('home');
-  }])
+}]);
