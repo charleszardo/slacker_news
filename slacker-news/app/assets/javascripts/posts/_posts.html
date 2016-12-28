@@ -12,9 +12,9 @@
 <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
   {{ comment.upvotes }} - by {{ comment.author }}
   <span class="glyphicon glyphicon-thumbs-up"
-    ng-click="vote(comment, 1)"></span>
+    ng-click="commentVote(post, comment, 1)"></span>
   <span class="glyphicon glyphicon-thumbs-down"
-    ng-click="vote(comment, -1)"></span>
+    ng-click="commentVote(post, comment, -1)"></span>
   <span style="font-size:20px; margin-left:10px;">
     {{comment.body}}
   </span>

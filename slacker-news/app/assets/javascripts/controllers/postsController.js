@@ -2,6 +2,7 @@ app.controller('PostsController', [
   '$scope', 'posts', 'post', 'voting', function($scope, posts, post, voting) {
     $scope.post = post;
     $scope.vote = voting.vote;
+    $scope.commentVote = voting.commentVote;
 
     $scope.addComment = function () {
       if ($scope.body === '') { return; }
