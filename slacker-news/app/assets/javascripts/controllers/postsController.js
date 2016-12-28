@@ -1,4 +1,4 @@
-app.controller('PostsCtrl', [
+app.controller('PostsController', [
   '$scope', '$stateParams', 'posts', 'voting', function($scope, $stateParams, posts, voting) {
     $scope.post = posts.posts[$stateParams.id];
     $scope.vote = voting.vote;

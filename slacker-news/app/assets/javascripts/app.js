@@ -9,12 +9,12 @@ app.config([
       .state('home', {
         url: '/home',
         templateUrl: 'home/_home.html',
-        controller: 'MainCtrl'
+        controller: 'HomeController'
       })
       .state('posts', {
         url: '/posts/{id}',
         templateUrl: 'posts/_posts.html',
-        controller: 'PostsCtrl'
+        controller: 'PostsController'
       })
 
     $urlRouterProvider.otherwise('home');

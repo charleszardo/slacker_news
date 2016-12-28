@@ -1,4 +1,4 @@
-app.controller('MainCtrl', [
+app.controller('HomeController', [
   '$scope', 'posts', 'voting', function($scope, posts, voting) {
     $scope.posts = posts.posts;
     $scope.vote = voting.vote;
