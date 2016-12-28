@@ -14,5 +14,11 @@ app.factory('posts', ['$http', function ($http) {
     });
   };
 
+  o.get = function(id) {
+    return $http.get('/posts/' + id + '.json').then(function(success){
+      return success.data;
+    });
+  };
+
   return o;
 }]);

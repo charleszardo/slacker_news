@@ -1,6 +1,6 @@
 app.controller('PostsController', [
-  '$scope', '$stateParams', 'posts', 'voting', function($scope, $stateParams, posts, voting) {
-    $scope.post = posts.posts[$stateParams.id];
+  '$scope', 'posts', 'post', 'voting', function($scope, posts, post, voting) {
+    $scope.post = post;
     $scope.vote = voting.vote;
 
     $scope.addComment = function () {

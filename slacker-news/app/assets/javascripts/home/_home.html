@@ -12,7 +12,7 @@
     </span>
     - upvotes: {{ post.upvotes }}
     <span>
-      <a href="#!/posts/{{$index}}">Comments</a>
+      <a href="#!/posts/{{ post.id }}">Comments</a>
     </span>
   </span>
   <span class="glyphicon glyphicon-thumbs-up" ng-click="vote(post, 1, 'post')"></span>
