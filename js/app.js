@@ -19,14 +19,25 @@ angular.module('slackerNews', ['ui.router'])
     $urlRouterProvider.otherwise('home');
   }])
   .factory('posts', [function () {
-    var o = {
-      posts: []
-    };
+    var o = {};
+    o.posts = [];
+    return o;
+  }])
+  .factory('voting', [function () {
+    var o = {};
+    o.vote = function(obj, val) {
+      if (val === 1) {
+        obj.upvotes += 1
+      } else {
+        obj.upvotes -= 1
+      }
+    }
     return o;
   }])
   .controller('MainCtrl', [
-    '$scope', 'posts', function($scope, posts) {
+    '$scope', 'posts', 'voting', function($scope, posts, voting) {
       $scope.posts = posts.posts;
+      $scope.vote = voting.vote;
 
       $scope.addPost = function () {
         if (!$scope.title || $scope.title === '') { return; }
@@ -43,18 +54,12 @@ angular.module('slackerNews', ['ui.router'])
         $scope.link = '';
       }
 
-      $scope.vote = function(post, val) {
-        console.log(val)
-        if (val === 1) {
-          post.upvotes++
-        } else {
-          post.upvotes -= 1
-        }
-      }
+
     }
   ])
   .controller('PostsCtrl', [
-    '$scope', '$stateParams', 'posts', function($scope, $stateParams, posts) {
+    '$scope', '$stateParams', 'posts', 'voting', function($scope, $stateParams, posts, voting) {
       $scope.post = posts.posts[$stateParams.id];
+      $scope.vote = voting.vote;
     }
   ])
