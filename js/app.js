@@ -26,11 +26,7 @@ angular.module('slackerNews', ['ui.router'])
   .factory('voting', [function () {
     var o = {};
     o.vote = function(obj, val) {
-      if (val === 1) {
-        obj.upvotes += 1
-      } else {
-        obj.upvotes -= 1
-      }
+      obj.upvotes += val
     }
     return o;
   }])
@@ -53,8 +49,6 @@ angular.module('slackerNews', ['ui.router'])
         $scope.title = '';
         $scope.link = '';
       }
-
-
     }
   ])
   .controller('PostsCtrl', [
