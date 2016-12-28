@@ -8,12 +8,12 @@ app.config([
     $stateProvider
       .state('home', {
         url: '/home',
-        templateUrl: '/home.html',
+        templateUrl: 'home/_home.html',
         controller: 'MainCtrl'
       })
       .state('posts', {
         url: '/posts/{id}',
-        templateUrl: '/posts.html',
+        templateUrl: 'posts/_posts.html',
         controller: 'PostsCtrl'
       })
 
