@@ -30,7 +30,15 @@ angular.module('slackerNews', ['ui.router'])
 
       $scope.addPost = function () {
         if (!$scope.title || $scope.title === '') { return; }
-        $scope.posts.push({ title: $scope.title, upvotes: 0 , link: $scope.link });
+        $scope.posts.push({
+          title: $scope.title,
+          upvotes: 0 ,
+          link: $scope.link,
+          comments: [
+            {author: 'Joe', body: 'Cool post!', upvotes: 0},
+            {author: 'Bob', body: 'Great idea but everything is wrong!', upvotes: 0}
+          ]
+        });
         $scope.title = '';
         $scope.link = '';
       }
@@ -47,6 +55,6 @@ angular.module('slackerNews', ['ui.router'])
   ])
   .controller('PostsCtrl', [
     '$scope', '$stateParams', 'posts', function($scope, $stateParams, posts) {
-      
+      $scope.post = posts.posts[$stateParams.id];
     }
   ])
