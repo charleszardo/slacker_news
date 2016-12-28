@@ -9,7 +9,12 @@ app.config([
       .state('home', {
         url: '/home',
         templateUrl: 'home/_home.html',
-        controller: 'HomeController'
+        controller: 'HomeController',
+        resolve: {
+          postPromise: ['posts', function(posts) {
+            return posts.getAll();
+          }]
+        }
       })
       .state('posts', {
         url: '/posts/{id}',
