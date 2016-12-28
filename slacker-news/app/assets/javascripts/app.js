@@ -1,4 +1,4 @@
-var app = angular.module('slackerNews', ['ui.router']);
+var app = angular.module('slackerNews', ['ui.router', 'templates']);
 
 app.config([
   '$stateProvider',
