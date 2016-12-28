@@ -5,11 +5,12 @@ app.controller('PostsController', [
 
     $scope.addComment = function () {
       if ($scope.body === '') { return; }
-      $scope.post.comments.push({
+      posts.addComment(post.id, {
         body: $scope.body,
-        author: 'user',
-        upvotes: 0
-      });
+        author: 'user'
+      }).then(function(success) {
+        $scope.post.comments.push(success.data);
+      })
       $scope.body = '';
     }
   }

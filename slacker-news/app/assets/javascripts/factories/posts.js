@@ -15,10 +15,14 @@ app.factory('posts', ['$http', function ($http) {
   };
 
   o.get = function(id) {
-    return $http.get('/posts/' + id + '.json').then(function(success){
+    return $http.get('/posts/' + id + '.json').then(function(success) {
       return success.data;
     });
   };
+
+  o.addComment = function(id, comment) {
+    return $http.post('/posts/' + id + '/comments.json', comment);
+  }
 
   return o;
 }]);
