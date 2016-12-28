@@ -4,7 +4,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    response_with Post.create(post_params)
+    post = Post.new(post_params)
+    post.upvotes = 0
+    post.save
+    
+    respond_with post
   end
 
   def show

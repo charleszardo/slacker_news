@@ -6,5 +6,11 @@ app.factory('posts', ['$http', function ($http) {
       angular.copy(success.data, o.posts);
     });
   };
+  o.create = function(post) {
+    return $http.post('/posts.json', post).then(function(success) {
+      o.posts.push(success.data);
+    });
+  };
+
   return o;
 }]);

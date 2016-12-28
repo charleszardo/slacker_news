@@ -5,15 +5,12 @@ app.controller('HomeController', [
 
     $scope.addPost = function () {
       if (!$scope.title || $scope.title === '') { return; }
-      $scope.posts.push({
-        title: $scope.title,
-        upvotes: 0 ,
-        link: $scope.link,
-        comments: [
-          {author: 'Joe', body: 'Cool post!', upvotes: 0},
-          {author: 'Bob', body: 'Great idea but everything is wrong!', upvotes: 0}
-        ]
-      });
+
+      posts.create({
+          title: $scope.title,
+          link: $scope.link
+      })
+
       $scope.title = '';
       $scope.link = '';
     }
