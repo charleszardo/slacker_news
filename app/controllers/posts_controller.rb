@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, only: [:create, :upvote]
-  
+
   def index
     respond_with Post.all
   end
 
   def create
-    post = Post.new(post_params)
+    post = Post.new(post_params.merge(user_id: current_user.id))
     post.upvotes = 0
     post.save
 
